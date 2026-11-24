@@ -1,0 +1,25 @@
+Windows Registry Editor Version 5.00
+
+; Libera camera, microfone e som automatico para o site do Papai Noel
+; no Microsoft Edge e no Google Chrome, sem pedir permissao.
+; ANTES DE USAR: troque https://seusite.com.br pelo endereco do seu site
+; (so o dominio, sem o nome da pagina). Depois de duplo clique neste arquivo
+; e reinicie o navegador.
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge]
+"AutoplayAllowed"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge\AudioCaptureAllowedUrls]
+"1"="https://seusite.com.br"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls]
+"1"="https://seusite.com.br"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome]
+"AutoplayAllowed"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AudioCaptureAllowedUrls]
+"1"="https://seusite.com.br"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\VideoCaptureAllowedUrls]
+"1"="https://seusite.com.br"

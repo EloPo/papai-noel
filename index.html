@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Papai Noel interativo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="scene">
+  <canvas id="sky"></canvas>
+  <div class="halo"></div>
+
+  <div class="santa">
+    <svg viewBox="0 0 704 760" aria-label="Rosto do Papai Noel">
+      <defs>
+        <image id="img" href="img/papai-noel.webp" width="704" height="740"/>
+        <mask id="eyeMask" maskUnits="userSpaceOnUse" x="0" y="0" width="704" height="760">
+          <image href="img/olhos-mascara.png" width="704" height="740"/>
+        </mask>
+        <radialGradient id="irisG" cx=".45" cy=".4" r=".6">
+          <stop offset="0" stop-color="#c0703a"/><stop offset=".6" stop-color="#9a4b22"/><stop offset="1" stop-color="#6e2c12"/>
+        </radialGradient>
+        <g id="iris">
+          <circle r="24" fill="url(#irisG)" stroke="#4a1d0c" stroke-width="2.5"/>
+          <circle r="13.5" fill="#22110b"/>
+          <circle cx="-8" cy="-9" r="6.5" fill="#fff"/>
+          <circle cx="9" cy="10" r="3" fill="#fff" opacity=".9"/>
+        </g>
+        <clipPath id="eyeClipL"><ellipse cx="235" cy="319" rx="50" ry="34"/></clipPath>
+        <clipPath id="eyeClipR"><ellipse cx="400" cy="315" rx="46" ry="33"/></clipPath>
+        <linearGradient id="lidG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e5a479"/><stop offset="1" stop-color="#efba92"/></linearGradient>
+      </defs>
+      <g id="turn"><g id="head">
+        <use href="#img"/>
+        <g id="jaw"><image href="img/boca.png" x="222" y="466" width="196" height="94"/></g>
+        <g mask="url(#eyeMask)">
+          <use href="#iris" id="irisL" x="242.9" y="328.4"/>
+          <use href="#iris" id="irisR" x="393" y="326.7"/>
+        </g>
+        <g clip-path="url(#eyeClipL)"><rect class="lid" x="180" y="285" width="110" height="0" fill="url(#lidG)"/><line x1="180" x2="290" y1="285" y2="285" stroke="#7a4a30" stroke-width="4" opacity="0"/></g>
+        <g clip-path="url(#eyeClipR)"><rect class="lid" x="350" y="282" width="100" height="0" fill="url(#lidG)"/><line x1="350" x2="450" y1="282" y2="282" stroke="#7a4a30" stroke-width="4" opacity="0"/></g>
+      </g></g>
+    </svg>
+  </div>
+
+    <div class="bubble" id="bubble" aria-live="polite"><p><span id="text"></span><span id="rest" style="visibility:hidden"></span></p></div>
+
+  <div class="heard" id="heard"></div>
+  <div class="listen" id="listen"><i></i><span id="listenText">Preparando…</span></div>
+  <div class="status" id="status"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
